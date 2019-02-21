@@ -5,7 +5,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
+
+//    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,5 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+
+//        mAuth = FirebaseAuth.getInstance();
     }
 }
