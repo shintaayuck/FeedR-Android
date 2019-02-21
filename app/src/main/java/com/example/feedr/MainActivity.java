@@ -2,12 +2,15 @@ package com.example.feedr;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -71,5 +74,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void launchGame(View v) {
+        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.tencent.ig");
+        if (launchIntent != null) {
+            startActivity(launchIntent);
+        } else {
+            launchIntent = new Intent(Intent.ACTION_VIEW);
+            launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            launchIntent.setData(Uri.parse("market://details?id=" + "com.tencent.ig"));
+            startActivity(launchIntent);
+        }
     }
 }
