@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //            intent.putExtra()
 //            account.get
             startActivity(intent);
-
+            finish();
         } else {
 //            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
 //            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
