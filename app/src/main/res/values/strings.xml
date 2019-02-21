@@ -6,4 +6,5 @@
     <string name="info_label">My Info</string>
     <string name="feed_label">Feed Me</string>
     <string name="game_label">Play with Me</string>
+    <string name="msg_token_fmt"></string>
 </resources>
