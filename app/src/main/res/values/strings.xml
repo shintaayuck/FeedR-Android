@@ -7,4 +7,14 @@
     <string name="feed_label">Feed Me</string>
     <string name="game_label">Play with Me</string>
     <string name="msg_token_fmt"></string>
+    <string name="pet_name">Pet Name</string>
+    <string name="pet_name_value">John Smith</string>
+    <string name="pet_type">Pet Type</string>
+    <string name="pet_type_value">Cheetah</string>
+    <string name="pet_age">Pet Age</string>
+    <string name="pet_age_value">12 Year 1 Month</string>
+    <string name="pet_location">Pet Location</string>
+    <string name="pet_location_value">Bandung</string>
+    <string name="pet_distance">Distance From You</string>
+    <string name="pet_distance_value">21 KM</string>
 </resources>
