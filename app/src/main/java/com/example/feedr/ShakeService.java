@@ -40,23 +40,6 @@ public class ShakeService extends Service implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        float x = event.values[0];
-        float y = event.values[1];
-        float z = event.values[2];
-        mAccelLast = mAccelCurrent;
-        mAccelCurrent = (float) Math.sqrt((double) (x * x + y * y + z * z));
-        float delta = mAccelCurrent - mAccelLast;
-        mAccel = mAccel * 0.9f + delta; // perform low-cut filter
-
-        if (mAccel > 11) {
-            Context context = getApplicationContext();
-            CharSequence text = "Hello toast!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-
-        }
     }
 
 }

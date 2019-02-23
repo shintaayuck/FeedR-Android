@@ -45,7 +45,7 @@ public class feed extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_feed, container, false);
+        final View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         mbutton = view.findViewById(R.id.feed_button);
         mStatus = view.findViewWithTag(R.id.food_status);
@@ -70,11 +70,16 @@ public class feed extends Fragment {
 
             @Override
             public void onShake(int count) {
-                Toast.makeText(getContext(), "Restock food complete!", Toast.LENGTH_LONG).show();
+                feedMe(view);
             }
         });
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -85,15 +90,26 @@ public class feed extends Fragment {
 
     @Override
     public void onPause() {
-        mSensorManager.unregisterListener(mShakeDetector);
         super.onPause();
+        mSensorManager.unregisterListener(mShakeDetector);
     }
 
     public void feedMe(View view) {
-
-
-        Log.d(TAG, "feedMe: ASU");
+        Toast.makeText(getContext(), "Restock food complete!", Toast.LENGTH_LONG).show();
         mLastFed.setText(getString(R.string.newtext));
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (mShakeDetector == null) {
+            return;
+        }
+        if (isVisibleToUser) {
+            mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_GAME);
+        } else {
+            mSensorManager.unregisterListener(mShakeDetector);
+        }
     }
 
 }
