@@ -1,11 +1,13 @@
 package com.example.feedr;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -13,8 +15,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
+import static android.content.ContentValues.TAG;
+
 public class MainActivity extends AppCompatActivity {
-    private  String TAG = "INI TAG BANGSAT";
+
+    TabLayout tabLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.info_label));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.feed_label));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.game_label));
@@ -53,4 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+
 }
