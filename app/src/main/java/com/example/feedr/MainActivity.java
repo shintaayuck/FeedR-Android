@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        String id = getIntent().getStringExtra("ID");
+
 //        mAuth = FirebaseAuth.getInstance();
     }
 }
