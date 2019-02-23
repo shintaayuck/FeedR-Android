@@ -14,10 +14,13 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
+import retrofit2.Call;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInAccount account;
+    GetDataService apiInterface;
 
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = LoginActivity.class.getName();
@@ -38,6 +41,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         findViewById(R.id.sign_in_button).setOnClickListener((View.OnClickListener) this);
 
+        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
+
+//        Call<PetModel> getPet()
+
     }
 
     @Override
@@ -52,11 +59,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Intent intent;
             if (isExist(user.getId())) {
                 intent = new Intent(this, MainActivity.class);
-            } else {
-                intent = new Intent(this, EditPetActivity.class);
+                intent.putExtra("ID", user.getId());
+                startActivity(intent);
+//            } else {
+//                intent = new Intent(this, EditPetActivity.class);
+//                intent.putExtra("ID", user.getId());
+//                startActivity(intent);
             }
-            intent.putExtra("ID", user.getId());
-            startActivity(intent);
+
+//            startActivity(intent);
 
             finish();
         }
