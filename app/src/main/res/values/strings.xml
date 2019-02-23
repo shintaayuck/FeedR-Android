@@ -17,4 +17,9 @@
     <string name="pet_location_value">Bandung</string>
     <string name="pet_distance">Distance From You</string>
     <string name="pet_distance_value">21 KM</string>
+    <string name="edit_pet_name_hint">Enter your pet name</string>
+    <string name="edit_pet_type_hint">Enter Pet Type</string>
+    <string name="edit_pet_age_year_hint">Year</string>
+    <string name="edit_pet_age_month_hint">Month</string>
+    <string name="edit_page_location_hint">Enter Pet Location</string>
 </resources>
