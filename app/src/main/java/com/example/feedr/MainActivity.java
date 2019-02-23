@@ -20,7 +20,6 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
 public class MainActivity extends AppCompatActivity {
-    private  String TAG = "INI TAG BANGSAT";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-
+        String id = getIntent().getStringExtra("ID");
+      
         android.support.v7.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
     }
