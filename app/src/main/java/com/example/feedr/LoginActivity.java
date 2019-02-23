@@ -49,15 +49,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void updateUI(GoogleSignInAccount user) {
         if (user != null) {
-            Intent intent = new Intent(this, MainActivity.class);
-//            intent.putExtra()
-//            account.get
+            Intent intent;
+            if (isExist(user.getId())) {
+                intent = new Intent(this, MainActivity.class);
+            } else {
+                intent = new Intent(this, EditPetActivity.class);
+            }
+            intent.putExtra("ID", user.getId());
             startActivity(intent);
+
             finish();
-        } else {
-//            findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
-//            findViewById(R.id.sign_out_and_disconnect).setVisibility(View.GONE);
         }
+    }
+
+    private boolean isExist(String id) {
+
+        return true;
     }
 
     @Override
