@@ -19,7 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
+import static android.content.ContentValues.TAG;
+
 public class MainActivity extends AppCompatActivity {
+
+    TabLayout tabLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.info_label));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.feed_label));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.game_label));
@@ -94,4 +98,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(launchIntent);
         }
     }
+
+
+
 }

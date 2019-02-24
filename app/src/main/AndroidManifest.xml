@@ -37,6 +37,8 @@
             </intent-filter>
         </service>
 
+        <service android:name=".ShakeService"></service>
+
     </application>
 
 </manifest>
