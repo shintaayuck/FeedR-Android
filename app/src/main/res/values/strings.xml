@@ -107,4 +107,13 @@
     <string name="edit_pet_age_month_hint">Month</string>
     <string name="edit_page_location_hint">Enter Pet Location</string>
     <string name="edit_pet">Edit Pet</string>
+    <string name="msg_token_fmt"></string>
+    <string name="food_status_label">Food Status</string>
+    <string name="food_status">Full</string>
+    <string name="last_fed_label">Last Fed</string>
+    <string name="last_fed">12 February 2019 15:10:34</string>
+    <string name="recommendation">Hehedjhaskdjsaldsjdskadjskdsjadksadjsakdjsdklsdkjsjdkskdskdjsadjasdadjsdksdjskdsjkdksdjsdjasdjsadksjdslkdsjdskdsdlsdjsdjs</string>
+    <string name="feed_button">Feed Me!</string>
+    <string name="shake_text">Shake Your Phone</string>
+    <string name="newtext">2020 hehe hehe</string>
 </resources>
