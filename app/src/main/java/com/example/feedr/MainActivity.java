@@ -1,9 +1,7 @@
 package com.example.feedr;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
-import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,19 +10,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-
-import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity {
-    private  String TAG = "INI TAG BANGSAT";
 
     TabLayout tabLayout;
+    GetDataInterface anInterface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Firebase", "token : " + FirebaseInstanceId.getInstance().getToken());
         android.support.v7.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
+
+        anInterface =  RetrofitClientInstance.getRetrofitInstance().create(GetDataInterface.class);
     }
 
     @Override
@@ -82,10 +76,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(settingsIntent);
                 return true;
 
-            case R.id.edit_pet:
-                Intent editIntent = new Intent(this,
-                        EditPetActivity.class);
-                startActivity(editIntent);
+//            case R.id.edit_pet:
+//                Intent editIntent = new Intent(this,
+//                        EditPetActivity.class);
+//                startActivity(editIntent);
             default:
                 // Skip
         }
