@@ -46,16 +46,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     TabLayout tabLayout;
     GetDataInterface anInterface;
 
-    private TextView mPetName;
-    private TextView mPetType;
-    private TextView mPetLocation;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("ASD", Locale.getDefault().getLanguage());
 
         setContentView(R.layout.activity_main);
+
+        //Get Views
 
         //
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
@@ -110,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         android.support.v7.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
 
-        searchPet();
         anInterface =  RetrofitClientInstance.getRetrofitInstance().create(GetDataInterface.class);
 
     }
@@ -221,8 +218,5 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         res.updateConfiguration(config, dm);
     }
 
-    private void searchPet(){
-        String id = "1";
-        new FetchPet(mPetName, mPetType, mPetLocation).execute(id);
-    }
+
 }
