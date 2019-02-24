@@ -4,6 +4,12 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/edit_pet"
+        android:orderInCategory="10"
+        android:title="@string/edit_pet"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_settings"
         android:orderInCategory="50"
         android:title="@string/settings"

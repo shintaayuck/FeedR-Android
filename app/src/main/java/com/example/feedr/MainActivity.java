@@ -12,6 +12,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+import android.widget.Toast;
+import static android.content.ContentValues.TAG;
 
 import java.util.Locale;
 
@@ -34,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     SensorManager sensorManager;
     Sensor sensor;
     static int x = 0;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.info_label));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.feed_label));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.game_label));
@@ -89,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
         });
 
+        String id = getIntent().getStringExtra("ID");
+        Log.d("Firebase", "token : " + FirebaseInstanceId.getInstance().getToken());
+
         // Set Default Shared Preference
         android.support.v7.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
@@ -109,6 +120,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         SettingActivity.class);
                 startActivity(settingsIntent);
                 return true;
+
+            case R.id.edit_pet:
+                Intent editIntent = new Intent(this,
+                        EditPetActivity.class);
+                startActivity(editIntent);
             default:
                 // Skip
         }
