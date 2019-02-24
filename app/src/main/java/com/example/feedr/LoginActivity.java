@@ -20,7 +20,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     GoogleSignInClient mGoogleSignInClient;
     GoogleSignInAccount account;
-    GetDataService apiInterface;
 
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = LoginActivity.class.getName();
@@ -40,10 +39,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         signInButton.setSize(SignInButton.SIZE_STANDARD);
 
         findViewById(R.id.sign_in_button).setOnClickListener((View.OnClickListener) this);
-
-        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(GetDataService.class);
-
-//        Call<PetModel> getPet()
 
     }
 
