@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Log.d("Firebase", "token : " + FirebaseInstanceId.getInstance().getToken());
         android.support.v7.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
     }
@@ -76,6 +77,11 @@ public class MainActivity extends AppCompatActivity {
                         SettingActivity.class);
                 startActivity(settingsIntent);
                 return true;
+
+            case R.id.edit_pet:
+                Intent editIntent = new Intent(this,
+                        EditPetActivity.class);
+                startActivity(editIntent);
             default:
                 // Skip
         }
