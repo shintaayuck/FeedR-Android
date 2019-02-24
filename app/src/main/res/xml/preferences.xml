@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
     <android.support.v7.preference.ListPreference
-        android:defaultValue="EN"
+        android:defaultValue="en"
         android:entries="@array/pref_language_titles"
         android:entryValues="@array/pref_market_values"
         android:key="preference_language"
