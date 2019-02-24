@@ -22,6 +22,7 @@ import com.google.firebase.iid.InstanceIdResult;
 import static android.content.ContentValues.TAG;
 
 public class MainActivity extends AppCompatActivity {
+    private  String TAG = "INI TAG BANGSAT";
 
     TabLayout tabLayout;
     @Override
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         String id = getIntent().getStringExtra("ID");
-      
+        Log.d("Firebase", "token : " + FirebaseInstanceId.getInstance().getToken());
         android.support.v7.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
     }
@@ -80,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
                         SettingActivity.class);
                 startActivity(settingsIntent);
                 return true;
+
+            case R.id.edit_pet:
+                Intent editIntent = new Intent(this,
+                        EditPetActivity.class);
+                startActivity(editIntent);
             default:
                 // Skip
         }
@@ -98,7 +104,4 @@ public class MainActivity extends AppCompatActivity {
             startActivity(launchIntent);
         }
     }
-
-
-
 }

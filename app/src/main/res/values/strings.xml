@@ -91,6 +91,22 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
 
+    <string name="pet_name">Pet Name</string>
+    <string name="pet_name_value">John Smith</string>
+    <string name="pet_type">Pet Type</string>
+    <string name="pet_type_value">Cheetah</string>
+    <string name="pet_age">Pet Age</string>
+    <string name="pet_age_value">12 Year 1 Month</string>
+    <string name="pet_location">Pet Location</string>
+    <string name="pet_location_value">Bandung</string>
+    <string name="pet_distance">Distance From You</string>
+    <string name="pet_distance_value">21 KM</string>
+    <string name="edit_pet_name_hint">Enter your pet name</string>
+    <string name="edit_pet_type_hint">Enter Pet Type</string>
+    <string name="edit_pet_age_year_hint">Year</string>
+    <string name="edit_pet_age_month_hint">Month</string>
+    <string name="edit_page_location_hint">Enter Pet Location</string>
+    <string name="edit_pet">Edit Pet</string>
     <string name="msg_token_fmt"></string>
     <string name="food_status_label">Food Status</string>
     <string name="food_status">Full</string>

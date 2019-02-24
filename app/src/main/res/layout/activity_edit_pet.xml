@@ -27,18 +27,13 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorAccent" />
 
-                <TextView
-                    android:id="@+id/petNameView"
+                <EditText
+                    android:id="@+id/editPetName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/edit_pet_name_hint"
                     android:text="@string/pet_name_value"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark"></View>
 
             </LinearLayout>
 
@@ -55,18 +50,13 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorAccent" />
 
-                <TextView
-                    android:id="@+id/petTypeView"
+                <EditText
+                    android:id="@+id/editPetType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/edit_pet_type_hint"
                     android:text="@string/pet_type_value"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark"></View>
 
             </LinearLayout>
 
@@ -83,18 +73,29 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorAccent" />
 
-                <TextView
-                    android:id="@+id/petAgeView"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pet_age_value"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    android:orientation="horizontal">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark"></View>
+                    <EditText
+                        android:id="@+id/editPetAgeYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit_pet_age_year_hint"
+                        android:text="@string/pet_age_value"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+                    <EditText
+                        android:id="@+id/editPetAgeMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit_pet_age_month_hint"
+                        android:text="@string/pet_age_value"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
@@ -111,42 +112,17 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorAccent" />
 
-                <TextView
-                    android:id="@+id/petLocationView"
+                <EditText
+                    android:id="@+id/editPetLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="@string/edit_page_location_hint"
                     android:text="@string/pet_location_value"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@color/colorPrimaryDark"></View>
-
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="16dp">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pet_distance"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/colorAccent" />
-
-                <TextView
-                    android:id="@+id/petDistanceView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pet_distance_value"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
