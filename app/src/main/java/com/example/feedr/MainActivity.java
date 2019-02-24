@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         Log.d("ASD", Locale.getDefault().getLanguage());
 
+        setContentView(R.layout.activity_main);
+
         //
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
@@ -56,17 +58,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         // Set View
         loadTheme();
 
-
-        // Set Language
-        SharedPreferences sharedPref = android.support.v7.preference.PreferenceManager.getDefaultSharedPreferences(this);
-        String languageToLoad  = sharedPref.getString(SettingActivity.KEY_PREF_LANGUAGE, null); // your language
-        setLocale(languageToLoad);
-
-        setContentView(R.layout.activity_main);
-
         // Set Fragment tab and view pager
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Set Language
+        SharedPreferences sharedPref = android.support.v7.preference.PreferenceManager.getDefaultSharedPreferences(this);
+        String languageToLoad  = sharedPref.getString(SettingActivity.KEY_PREF_LANGUAGE, "1"); // your language
+        setLocale(languageToLoad);
 
         tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.info_label));

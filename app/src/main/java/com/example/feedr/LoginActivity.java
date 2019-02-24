@@ -55,12 +55,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void updateUI(GoogleSignInAccount user) {
-        Log.d("KONTOL", "KONTOL1");
         if (user != null) {
             Intent intent;
-            Log.d("KONTOL", "KONTOL2");
             if (isExist(user.getId())) {
-                Log.d("KONTOL", "KONTOL3");
                 intent = new Intent(this, MainActivity.class);
                 intent.putExtra("ID", user.getId());
                 startActivity(intent);
