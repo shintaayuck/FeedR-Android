@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 public class SettingActivity extends AppCompatActivity {
     public static final String
-            KEY_PREF_LANGUAGE = "example_switch";
+            KEY_PREF_LANGUAGE = "preference_language";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
