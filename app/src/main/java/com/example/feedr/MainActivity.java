@@ -23,7 +23,6 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -35,6 +34,7 @@ import com.google.firebase.iid.InstanceIdResult;
 import android.widget.Toast;
 import static android.content.ContentValues.TAG;
 import java.util.Locale;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 //        Log.d("ANJAAY", pet.getId());
 
         setContentView(R.layout.activity_main);
-
-        //Get Views
 
         //
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
@@ -113,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 .setDefaultValues(this, R.xml.preferences, false);
 
         anInterface =  RetrofitClientInstance.getRetrofitInstance().create(GetDataInterface.class);
-
     }
 
     @Override

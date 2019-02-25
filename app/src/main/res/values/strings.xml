@@ -116,5 +116,9 @@
     <string name="feed_button">Feed Me!</string>
     <string name="shake_text">Shake Your Phone</string>
     <string name="newtext">2020 hehe hehe</string>
+    <string name="your_high_score">Your High Score</string>
+    <string name="default_highscore">0</string>
+    <string name="play_now">Play Now!</string>
+    <string name="get_current_location">Get Current Location</string>
     <string name="save_button">Save</string>
 </resources>

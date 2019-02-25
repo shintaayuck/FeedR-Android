@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".info">
+    tools:context=".EditPetActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -59,6 +59,9 @@
             </LinearLayout>
 
 
+
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,13 +75,21 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorAccent" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editPetLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_page_location_hint"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
+                <Button
+                    android:id="@+id/editPetLocationButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/get_current_location"
+                    android:onClick="getLocation">
+
+                </Button>
             </LinearLayout>
 
 
