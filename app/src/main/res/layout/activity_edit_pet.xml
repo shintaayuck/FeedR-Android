@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".info">
+    tools:context=".EditPetActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -69,50 +69,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/pet_age"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/colorAccent" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/editPetAgeYear"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/edit_pet_age_year_hint"
-                        android:text="@string/pet_age_value"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-                    <EditText
-                        android:id="@+id/editPetAgeMonth"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/edit_pet_age_month_hint"
-                        android:text="@string/pet_age_value"
-                        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:text="@string/pet_location"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/colorAccent" />
 
-                <EditText
+                <TextView
                     android:id="@+id/editPetLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -120,6 +81,14 @@
                     android:text="@string/pet_location_value"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
+                <Button
+                    android:id="@+id/editPetLocationButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/get_current_location"
+                    android:onClick="getLocation">
+
+                </Button>
             </LinearLayout>
 
 
