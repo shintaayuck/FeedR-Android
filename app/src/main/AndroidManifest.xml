@@ -39,11 +39,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
             android:name=".SettingActivity"
             android:label="Setting"
             android:parentActivityName=".MainActivity">
