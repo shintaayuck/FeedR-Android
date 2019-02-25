@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         Log.d("ASD", Locale.getDefault().getLanguage());
 
-        setContentView(R.layout.activity_main);
 
         //
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         // Set View
         loadTheme();
+        setContentView(R.layout.activity_main);
 
         // Set Fragment tab and view pager
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
