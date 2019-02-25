@@ -37,6 +37,7 @@ public class EditPetActivity extends AppCompatActivity {
     String newType;
     Double newLat;
     Double newLong;
+    String currentlocation;
 
     private EditText mPetName;
     private EditText mPetType;
@@ -47,7 +48,6 @@ public class EditPetActivity extends AppCompatActivity {
 
     String petName = null;
     String petType = null;
-    String petLocation = null;
     boolean petAvailable = false;
     String petId = null;
     String petLastFed = null;
@@ -62,26 +62,27 @@ public class EditPetActivity extends AppCompatActivity {
 
         mPetName = (EditText) findViewById(R.id.editPetName);
         mPetType = (EditText) findViewById(R.id.editPetType);
-        mPetLocation = (TextView) findViewById(R.id.editPetLocation);
         mSaveButton = (Button) findViewById(R.id.edit_save_button);
+        editPetLocationText = (TextView) findViewById(R.id.editPetLocation);
+
 
         if (getIntent()!=null) {
             petName = getIntent().getExtras().getString("Pet Name");
             petType = getIntent().getExtras().getString("Pet Type");
-            petLocation = getIntent().getExtras().getString("Pet Location");
             petAvailable = getIntent().getExtras().getBoolean("Pet Available");
             petId = getIntent().getExtras().getString("Pet Id");
             petLastFed = getIntent().getExtras().getString("Pet Last Fed");
             petHighScore = getIntent().getExtras().getInt("Pet Highscore");
             petLatitude = getIntent().getExtras().getInt("Pet Latitude");
             petLongitude = getIntent().getExtras().getInt("Pet Longitude");
+
+
+//            currentlocation = getAddress(petLatitude,petLongitude);
         }
 
         mPetName.setText(petName);
         mPetType.setText(petType);
-        mPetLocation.setText(petLocation);
-
-        editPetLocationText = (TextView) findViewById(R.id.editPetLocation);
+//        editPetLocationText.setText(currentlocation);
     }
 
     public void getLocation(View view) {
@@ -143,9 +144,8 @@ public class EditPetActivity extends AppCompatActivity {
     public void savePet(View view) {
         petName = mPetName.getText().toString();
         petType = mPetType.getText().toString();
-        petLocation = mPetLocation.getText().toString();
 
-        pet = new PetModel(petId,petName,petType,petAvailable,petLastFed,petHighScore,petLatitude,petLongitude);
+        pet = new PetModel(petId,petName,petType,petAvailable,petLastFed,petHighScore,newLat,newLong);
         updatePet(pet);
         Intent mainIntent =  new Intent(this,
                 MainActivity.class);

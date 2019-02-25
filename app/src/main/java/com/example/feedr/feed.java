@@ -20,6 +20,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 import static android.content.ContentValues.TAG;
 
 
@@ -132,7 +134,8 @@ public class feed extends Fragment {
 
     public void feedMe(View view) {
         Toast.makeText(getContext(), "Restock food complete!", Toast.LENGTH_LONG).show();
-        mLastFed.setText(getString(R.string.newtext));
+        Date date = new Date();
+        mLastFed.setText(date.toString());
     }
 
     @Override
