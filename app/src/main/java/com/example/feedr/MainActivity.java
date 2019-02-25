@@ -122,10 +122,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 startActivity(settingsIntent);
                 return true;
 
-//            case R.id.edit_pet:
-//                Intent editIntent = new Intent(this,
-//                        EditPetActivity.class);
-//                startActivity(editIntent);
+            case R.id.edit_pet:
+                Intent editIntent = new Intent(this,
+                        EditPetActivity.class);
+                startActivity(editIntent);
             default:
                 // Skip
         }

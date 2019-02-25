@@ -119,4 +119,6 @@
     <string name="your_high_score">Score Tertinggi</string>
     <string name="default_highscore">0</string>
     <string name="play_now">Mainkan!</string>
+    <string name="get_current_location">Dapatkan Lokasi Saat Ini</string>
+
 </resources>
