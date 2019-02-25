@@ -40,7 +40,7 @@ public class EditPetActivity extends AppCompatActivity {
 
     private EditText mPetName;
     private EditText mPetType;
-    private EditText mPetLocation;
+    private TextView mPetLocation;
     private Button mSaveButton;
 
     PetModel pet;
@@ -59,6 +59,27 @@ public class EditPetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_pet);
+
+        mPetName = (EditText) findViewById(R.id.editPetName);
+        mPetType = (EditText) findViewById(R.id.editPetType);
+        mPetLocation = (TextView) findViewById(R.id.editPetLocation);
+        mSaveButton = (Button) findViewById(R.id.edit_save_button);
+
+        if (getIntent()!=null) {
+            petName = getIntent().getExtras().getString("Pet Name");
+            petType = getIntent().getExtras().getString("Pet Type");
+            petLocation = getIntent().getExtras().getString("Pet Location");
+            petAvailable = getIntent().getExtras().getBoolean("Pet Available");
+            petId = getIntent().getExtras().getString("Pet Id");
+            petLastFed = getIntent().getExtras().getString("Pet Last Fed");
+            petHighScore = getIntent().getExtras().getInt("Pet Highscore");
+            petLatitude = getIntent().getExtras().getInt("Pet Latitude");
+            petLongitude = getIntent().getExtras().getInt("Pet Longitude");
+        }
+
+        mPetName.setText(petName);
+        mPetType.setText(petType);
+        mPetLocation.setText(petLocation);
 
         editPetLocationText = (TextView) findViewById(R.id.editPetLocation);
     }
@@ -106,29 +127,6 @@ public class EditPetActivity extends AppCompatActivity {
             e.printStackTrace();
             return "";
         }
-
-        mPetName = (EditText) findViewById(R.id.editPetName);
-        mPetType = (EditText) findViewById(R.id.editPetType);
-        mPetLocation = (EditText) findViewById(R.id.editPetLocation);
-        mSaveButton = (Button) findViewById(R.id.edit_save_button);
-
-        if (getIntent()!=null) {
-            petName = getIntent().getExtras().getString("Pet Name");
-            petType = getIntent().getExtras().getString("Pet Type");
-            petLocation = getIntent().getExtras().getString("Pet Location");
-            petAvailable = getIntent().getExtras().getBoolean("Pet Available");
-            petId = getIntent().getExtras().getString("Pet Id");
-            petLastFed = getIntent().getExtras().getString("Pet Last Fed");
-            petHighScore = getIntent().getExtras().getInt("Pet Highscore");
-            petLatitude = getIntent().getExtras().getInt("Pet Latitude");
-            petLongitude = getIntent().getExtras().getInt("Pet Longitude");
-        }
-
-        mPetName.setText(petName);
-        mPetType.setText(petType);
-        mPetLocation.setText(petLocation);
-
-
     }
 
     public void updatePet(PetModel pet){

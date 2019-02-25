@@ -57,6 +57,7 @@ public class NetworkUtils {
             if (buffer.length() == 0) {petJSONString = null;
                 return null;
             }
+
             petJSONString = buffer.toString();
 
         } catch (Exception ex) {
