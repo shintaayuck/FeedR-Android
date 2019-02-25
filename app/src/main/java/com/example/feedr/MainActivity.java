@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         searchPet();
 //        Log.d("ANJAAY", pet.getId());
 
-        setContentView(R.layout.activity_main);
 
         //
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         // Set View
         loadTheme();
+        setContentView(R.layout.activity_main);
 
         // Set Fragment tab and view pager
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
