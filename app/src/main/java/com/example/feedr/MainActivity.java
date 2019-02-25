@@ -33,8 +33,8 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import android.widget.Toast;
 import static android.content.ContentValues.TAG;
-
 import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     android.support.v7.widget.Toolbar mToolbar;
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     Sensor sensor;
     static int x = 0;
     TabLayout tabLayout;
+    GetDataInterface anInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         android.support.v7.preference.PreferenceManager
                 .setDefaultValues(this, R.xml.preferences, false);
 
+        anInterface =  RetrofitClientInstance.getRetrofitInstance().create(GetDataInterface.class);
     }
 
     @Override
@@ -120,10 +122,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 startActivity(settingsIntent);
                 return true;
 
-            case R.id.edit_pet:
-                Intent editIntent = new Intent(this,
-                        EditPetActivity.class);
-                startActivity(editIntent);
+//            case R.id.edit_pet:
+//                Intent editIntent = new Intent(this,
+//                        EditPetActivity.class);
+//                startActivity(editIntent);
             default:
                 // Skip
         }
