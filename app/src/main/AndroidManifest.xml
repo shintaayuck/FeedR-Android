@@ -17,6 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        >
+
+        <activity android:name=".EditPetActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashScreenStyle">

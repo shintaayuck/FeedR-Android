@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +38,11 @@ public class info extends Fragment {
     private TextView distanceTextView;
     private TextView locationTextView;
 
+    private TextView mPetName;
+    private TextView mPetType;
+    private TextView mPetLocation;
 
+    public MainActivity main_activity;
     public info() {
         // Required empty public constructor
     }
@@ -45,6 +51,21 @@ public class info extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        View view =  inflater.inflate(R.layout.fragment_info, container, false);
+
+        main_activity = (MainActivity) getActivity();
+
+//        Log.d("Tes",main_activity.coba.toS);
+
+        mPetName = (TextView) view.findViewById(R.id.petNameView);
+        mPetType = (TextView) view.findViewById(R.id.petTypeView);
+        mPetLocation = (TextView) view.findViewById(R.id.petLocationView);
+
+        if (main_activity.pet != null) {
+            mPetName.setText(main_activity.pet.getPetName());
+            mPetType.setText(main_activity.pet.getType());
+//            mPetLocation.setText(main_activity.pet.getLocation());
+        }
 
         int MY_PERMISSION_ACCESS_COARSE_LOCATION = 42;
 
@@ -96,4 +117,34 @@ public class info extends Fragment {
         }
     }
 
+
+    public void setInfo(){
+        mPetName.setText(main_activity.pet.getPetName());
+        mPetType.setText(main_activity.pet.getType());
+//        mPetLocation.setText(main_activity.pet.getLocation());
+    }
+//    private void searchPet(){
+//        String id = "1";
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (main_activity.pet != null) {
+            mPetName.setText(main_activity.pet.getPetName());
+            mPetType.setText(main_activity.pet.getType());
+//            mPetLocation.setText(main_activity.pet.getLocation());
+        }
+    }
+//        new FetchPet(mPetName, mPetType, mPetLocation).execute(id);
+//    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (main_activity.pet != null) {
+            mPetName.setText(main_activity.pet.getPetName());
+            mPetType.setText(main_activity.pet.getType());
+//            mPetLocation.setText(main_activity.pet.getLocation());
+        }
+    }
 }

@@ -32,7 +32,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_pet_name_hint"
-                    android:text="@string/pet_name_value"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
             </LinearLayout>
@@ -55,8 +54,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_pet_type_hint"
-                    android:text="@string/pet_type_value"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+            </LinearLayout>
+
+
 
             </LinearLayout>
 
@@ -78,7 +80,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/edit_page_location_hint"
-                    android:text="@string/pet_location_value"
                     android:textAppearance="?android:attr/textAppearanceLarge"/>
 
                 <Button
@@ -95,5 +96,13 @@
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/edit_save_button"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/save_button"
+        android:onClick="savePet">
+    </Button>
 
 </RelativeLayout>
