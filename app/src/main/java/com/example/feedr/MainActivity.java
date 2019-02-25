@@ -23,7 +23,6 @@ import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -35,8 +34,6 @@ import com.google.firebase.iid.InstanceIdResult;
 import android.widget.Toast;
 import static android.content.ContentValues.TAG;
 import java.util.Locale;
-
-
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     android.support.v7.widget.Toolbar mToolbar;
@@ -107,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 .setDefaultValues(this, R.xml.preferences, false);
 
         anInterface =  RetrofitClientInstance.getRetrofitInstance().create(GetDataInterface.class);
-
     }
 
     @Override
