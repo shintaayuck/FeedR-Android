@@ -31,6 +31,7 @@ public class feed extends Fragment {
     Button mbutton;
     TextView mStatus;
     TextView mLastFed;
+    TextView mRecommendation;
 
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
@@ -50,6 +51,7 @@ public class feed extends Fragment {
         mbutton = view.findViewById(R.id.feed_button);
         mStatus = view.findViewById(R.id.food_status);
         mLastFed = view.findViewById(R.id.last_fed);
+        mRecommendation = view.findViewById(R.id.recommendation);
 
         main_activity = (MainActivity) getActivity();
 
@@ -94,12 +96,16 @@ public class feed extends Fragment {
         if (main_activity.pet != null) {
             if (main_activity.pet.isAvailable()) {
                 mStatus.setText("Full");
+                mRecommendation.setText(getString(R.string.full_rec));
+
             } else {
                 mStatus.setText("Empty");
+                mRecommendation.setText(getString(R.string.empty_rec));
             }
             mLastFed.setText(main_activity.pet.getLastFed());
         }
     }
+
 
     @Override
     public void onResume() {
@@ -107,8 +113,11 @@ public class feed extends Fragment {
         if (main_activity.pet != null) {
             if (main_activity.pet.isAvailable()) {
                 mStatus.setText("Full");
+                mRecommendation.setText(getString(R.string.full_rec));
+
             } else {
                 mStatus.setText("Empty");
+                mRecommendation.setText(getString(R.string.empty_rec));
             }
             mLastFed.setText(main_activity.pet.getLastFed());
         }

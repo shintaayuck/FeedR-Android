@@ -121,4 +121,6 @@
     <string name="play_now">Play Now!</string>
     <string name="get_current_location">Get Current Location</string>
     <string name="save_button">Save</string>
+    <string name="full_rec">Your pet hasn\'t eaten their food because the bowl is still full. Don\'t worry, they will eat the food when they are hungry</string>
+    <string name="empty_rec">The food bowl is empty! You should fill your pet\'s food bowl so they can eat again. Just shake your phone or simply click the button below!</string>
 </resources>
