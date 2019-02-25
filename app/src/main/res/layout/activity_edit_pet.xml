@@ -85,5 +85,13 @@
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/edit_save_button"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/save_button"
+        android:onClick="savePet">
+    </Button>
 
 </RelativeLayout>

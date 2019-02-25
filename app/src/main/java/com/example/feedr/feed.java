@@ -35,7 +35,7 @@ public class feed extends Fragment {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
-
+    public MainActivity main_activity;
     public feed() {
         // Required empty public constructor
     }
@@ -48,8 +48,19 @@ public class feed extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         mbutton = view.findViewById(R.id.feed_button);
-        mStatus = view.findViewWithTag(R.id.food_status);
+        mStatus = view.findViewById(R.id.food_status);
         mLastFed = view.findViewById(R.id.last_fed);
+
+        main_activity = (MainActivity) getActivity();
+
+        if (main_activity.pet != null) {
+            if (main_activity.pet.isAvailable()) {
+                mStatus.setText("Full");
+            } else {
+                mStatus.setText("Empty");
+            }
+            mLastFed.setText(main_activity.pet.getLastFed());
+        }
 
         mbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +91,27 @@ public class feed extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        if (main_activity.pet != null) {
+            if (main_activity.pet.isAvailable()) {
+                mStatus.setText("Full");
+            } else {
+                mStatus.setText("Empty");
+            }
+            mLastFed.setText(main_activity.pet.getLastFed());
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        if (main_activity.pet != null) {
+            if (main_activity.pet.isAvailable()) {
+                mStatus.setText("Full");
+            } else {
+                mStatus.setText("Empty");
+            }
+            mLastFed.setText(main_activity.pet.getLastFed());
+        }
         mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
     }
 

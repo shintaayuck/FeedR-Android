@@ -35,7 +35,8 @@ import com.google.firebase.iid.InstanceIdResult;
 import android.widget.Toast;
 import static android.content.ContentValues.TAG;
 import java.util.Locale;
-
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
@@ -45,11 +46,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     static int x = 0;
     TabLayout tabLayout;
     GetDataInterface anInterface;
+    static PetModel pet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d("ASD", Locale.getDefault().getLanguage());
+        searchPet();
+//        Log.d("ANJAAY", pet.getId());
 
         setContentView(R.layout.activity_main);
 
@@ -130,6 +134,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             case R.id.edit_pet:
                 Intent editIntent = new Intent(this,
                         EditPetActivity.class);
+                editIntent.putExtra("Pet Id", pet.getId());
+                editIntent.putExtra("Pet Name",pet.getPetName());
+                editIntent.putExtra("Pet Type",pet.getType());
+                editIntent.putExtra("Pet Available",pet.isAvailable());
+                editIntent.putExtra("Pet Last Fed", pet.getLastFed());
+                editIntent.putExtra("Pet Highscore", pet.getHighScore());
+                editIntent.putExtra("Pet Latitude", pet.getLatitude());
+                editIntent.putExtra("Pet Longitude", pet.getLongitude());
+
                 startActivity(editIntent);
             default:
                 // Skip
@@ -177,8 +190,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        searchPet();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
+        searchPet();
         sensorManager.registerListener(this, sensor, sensorManager.SENSOR_DELAY_NORMAL);
     }
 
@@ -218,5 +238,19 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         res.updateConfiguration(config, dm);
     }
 
+    private void searchPet(){
+        String id = "1";
+        try {
+            String Json = new FetchPet(pet).execute(id).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void setPet(PetModel p){
+        pet = p;
+    }
 
 }

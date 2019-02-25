@@ -11,23 +11,27 @@ public class PetModel {
     private String petName;
     @SerializedName("type")
     private String type;
-    @SerializedName("location")
-    private String location;
     @SerializedName("isAvailable")
     private boolean isAvailable;
     @SerializedName("lastFed")
-    private Date lastFed;
+    private String lastFed;
     @SerializedName("highScore")
     private Integer highScore;
+    @SerializedName("latitude")
+    private Double latitude;
+    @SerializedName("longitude")
+    private Double longitude;
 
-    public PetModel(String id, String petName, String type, String location, boolean isAvailable, Date lastFed, Integer highScore) {
+
+    public PetModel(String id, String petName, String type, boolean isAvailable, String lastFed, Integer highScore, Double latitude, Double longitude) {
         this.id = id;
         this.petName = petName;
         this.type = type;
-        this.location = location;
         this.isAvailable = isAvailable;
         this.lastFed = lastFed;
         this.highScore = highScore;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getId() {
@@ -54,13 +58,6 @@ public class PetModel {
         this.type = type;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
 
     public boolean isAvailable() {
         return isAvailable;
@@ -70,11 +67,11 @@ public class PetModel {
         isAvailable = available;
     }
 
-    public Date getLastFed() {
+    public String getLastFed() {
         return lastFed;
     }
 
-    public void setLastFed(Date lastFed) {
+    public void setLastFed(String lastFed) {
         this.lastFed = lastFed;
     }
 
@@ -84,5 +81,13 @@ public class PetModel {
 
     public void setHighScore(Integer highScore) {
         this.highScore = highScore;
+    }
+
+    public Double getLatitude(){
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
     }
 }
