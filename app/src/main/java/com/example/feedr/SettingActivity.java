@@ -45,6 +45,7 @@ public class SettingActivity extends AppCompatActivity {
                         Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
+                        finish();
                     }
                 });
 //        Intent intent = new Intent(this, LoginActivity.class);
