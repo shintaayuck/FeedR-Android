@@ -11,5 +11,8 @@
         android:title="@string/pref_title_language"
         android:summary="%s"
         app:iconSpaceReserved="false"/>
+    <Preference
+        android:layout="@layout/signoutbutton"
+        android:key="signoutbutton" />
 
 </PreferenceScreen>
