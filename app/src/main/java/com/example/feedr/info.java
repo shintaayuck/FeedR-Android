@@ -69,7 +69,6 @@ public class info extends Fragment {
 
         int MY_PERMISSION_ACCESS_COARSE_LOCATION = 42;
 
-        View view = inflater.inflate(R.layout.fragment_info, container, false);
         distanceTextView = (TextView) view.findViewById(R.id.petDistanceView);
         locationTextView = (TextView) view.findViewById(R.id.petLocationView);
 
