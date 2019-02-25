@@ -35,7 +35,6 @@ import android.widget.Toast;
 import static android.content.ContentValues.TAG;
 import java.util.Locale;
 
-
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
     android.support.v7.widget.Toolbar mToolbar;
     SensorManager sensorManager;
