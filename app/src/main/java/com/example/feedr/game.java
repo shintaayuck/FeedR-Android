@@ -32,6 +32,14 @@ public class game extends Fragment {
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        if (main_activity.pet != null) {
+            mHighScoreView.setText(main_activity.pet.getHighScore().toString());
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment

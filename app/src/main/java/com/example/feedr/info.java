@@ -55,6 +55,16 @@ public class info extends Fragment {
     }
 //    private void searchPet(){
 //        String id = "1";
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (main_activity.pet != null) {
+            mPetName.setText(main_activity.pet.getPetName());
+            mPetType.setText(main_activity.pet.getType());
+//            mPetLocation.setText(main_activity.pet.getLocation());
+        }
+    }
 //        new FetchPet(mPetName, mPetType, mPetLocation).execute(id);
 //    }
 
