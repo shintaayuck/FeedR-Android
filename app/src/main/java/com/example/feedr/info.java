@@ -62,6 +62,8 @@ public class info extends Fragment {
         mPetLocation = (TextView) view.findViewById(R.id.petLocationView);
 
         if (main_activity.pet != null) {
+            Log.d("Ganti","Creaaate");
+
             mPetName.setText(main_activity.pet.getPetName());
             mPetType.setText(main_activity.pet.getType());
 //            mPetLocation.setText(main_activity.pet.getLocation());
@@ -128,7 +130,9 @@ public class info extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        Log.d("Masuk","Start");
         if (main_activity.pet != null) {
+            Log.d("Ganti","Start");
             mPetName.setText(main_activity.pet.getPetName());
             mPetType.setText(main_activity.pet.getType());
 //            mPetLocation.setText(main_activity.pet.getLocation());
@@ -140,7 +144,9 @@ public class info extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("Masuk","Resume2");
         if (main_activity.pet != null) {
+            Log.d("Ganti","Resume");
             mPetName.setText(main_activity.pet.getPetName());
             mPetType.setText(main_activity.pet.getType());
 //            mPetLocation.setText(main_activity.pet.getLocation());

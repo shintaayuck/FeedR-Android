@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 import static android.content.ContentValues.TAG;
 
@@ -133,11 +134,19 @@ public class feed extends Fragment {
     }
 
     public void feedMe(View view) {
-        Toast.makeText(getContext(), "Restock food complete!", Toast.LENGTH_LONG).show();
-        Date date = new Date();
-        mLastFed.setText(date.toString());
-        mStatus.setText("Full");
-        mRecommendation.setText(getString(R.string.full_rec));
+        try {
+            String result = new FeedPetAsync().execute(main_activity.pet).get();
+            Log.d(TAG, "feedMe: " + result);
+            Toast.makeText(getContext(), "Restock food complete!", Toast.LENGTH_LONG).show();
+            Date date = new Date();
+            mLastFed.setText(date.toString());
+            mStatus.setText("Full");
+            mRecommendation.setText(getString(R.string.full_rec));
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

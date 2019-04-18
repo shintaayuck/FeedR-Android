@@ -55,11 +55,4 @@ public class game extends Fragment {
         return view;
     }
 
-    public void launchGame(View v) {
-        Intent launchIntent = getActivity().getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
-        if (launchIntent != null) {
-            startActivity(launchIntent);
-        }
-    }
-
 }

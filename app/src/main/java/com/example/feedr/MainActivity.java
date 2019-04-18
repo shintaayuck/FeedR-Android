@@ -53,10 +53,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         Log.d("ASD", Locale.getDefault().getLanguage());
         searchPet();
-//        Log.d("ANJAAY", pet.getId());
 
-
-        //
         sensorManager = (SensorManager) getSystemService(Service.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         mToolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
@@ -149,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void launchGame(View v) {
-        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.tencent.ig");
+        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.FeedR.PetEscape");
         if (launchIntent != null) {
             startActivity(launchIntent);
         } else {

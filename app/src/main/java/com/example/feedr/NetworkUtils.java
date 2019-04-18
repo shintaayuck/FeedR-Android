@@ -15,6 +15,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -22,8 +23,9 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class NetworkUtils {
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
-    private static final String GET_PET_URL =  "http://fe3b42f8.ngrok.io/getpet?"; // Base URI for the Books API
-    private static final String UPDATE_PET_URL = "http://fe3b42f8.ngrok.io/updatepet";
+    private static final String GET_PET_URL =  "https://feedr.pagekite.me/getpet?"; // Base URI for the Books API
+    private static final String UPDATE_PET_URL = "https://feedr.pagekite.me/updatepet";
+    private static final String FEED_PET_URL = "https://feedr.pagekite.me/feedpet";
     private static final String QUERY_PARAM = "id"; // Parameter for the search string
     private static final String PRINT_TYPE = "printType";   // Parameter to filter by print type
 
@@ -59,7 +61,7 @@ public class NetworkUtils {
             }
 
             petJSONString = buffer.toString();
-
+            Log.d(LOG_TAG, petJSONString);
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
@@ -74,12 +76,12 @@ public class NetworkUtils {
                     e.printStackTrace();
                 }
             }
-            Log.d(LOG_TAG, petJSONString);
+
             return petJSONString;
         }
     }
 
-    static String  updatePetInfo(PetModel pet){
+    static String updatePetInfo(PetModel pet){
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
 
@@ -186,5 +188,77 @@ public class NetworkUtils {
 
         }
         return result.toString();
+    }
+
+    static String feedPet(PetModel pet){
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+
+        String petJSONString = null;
+        try {
+            Uri builtURI = Uri.parse(FEED_PET_URL).buildUpon()
+                    .build();
+
+            URL requestURL = new URL(builtURI.toString());
+
+            urlConnection = (HttpURLConnection) requestURL.openConnection();
+            urlConnection.setRequestMethod("POST");
+            urlConnection.setDoInput(true);
+            urlConnection.setDoOutput(true);
+
+            JSONObject postDataParams = new JSONObject();
+//            postDataParams.put("id", pet.getId());
+//            postDataParams.put("lastFed", new Date());
+
+            OutputStream os = urlConnection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(os, "UTF-8"));
+            writer.write(getPostDataString(postDataParams));
+
+            writer.flush();
+            writer.close();
+            os.close();
+
+            int responseCode=urlConnection.getResponseCode();
+
+            if (responseCode == HttpsURLConnection.HTTP_OK) {
+
+                BufferedReader in=new BufferedReader(
+                        new InputStreamReader(
+                                urlConnection.getInputStream()));
+                StringBuffer sb = new StringBuffer("");
+                String line="";
+
+                while((line = in.readLine()) != null) {
+
+                    sb.append(line);
+                    break;
+                }
+
+                in.close();
+                petJSONString = sb.toString();
+
+            }
+            else {
+                petJSONString = new String("false : "+responseCode);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        } finally {
+            if (urlConnection != null) {
+                urlConnection.disconnect();
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            Log.d(LOG_TAG, petJSONString);
+            return petJSONString;
+        }
     }
 }
